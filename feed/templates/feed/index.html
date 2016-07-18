@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+
+<html>
+	<head>
+		<meta charset='UTF=8' >
+		<meta name="description" content="Блог вчителя математики Антощук Людмили Анатоліївни">
+		<meta name="keywords" content="фотогалерея, блог, математика, уроки, алгебра, геометрія, дпа, зно">
+		
+		<title>MathBlog</title>
+		
+		<link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+		<link rel="stylesheet" href="{% static 'css/style.css' %}">
+		
+		<link rel="icon" type="image/png" href="{% static 'images/faveicon.png' %}" />
+	
+	</head>
+	
+	<body>
+
+
+
+	<!--HEADER-->
+	
+	<header>
+	
+
+		<!--INTRO-->
+	
+		<div>
+			<div class="intro">
+				<div class='intro-title'>
+					<h1>MATH BLOG</h1>
+					<h3>блог вчителя математики</h3>
+				</div>
+				<div class='call-to-action'>
+					<a href="#content" class='btn'>Детальніше</a>
+				</div>
+			</div>
+		</div>
+		
+		<!--INTRO-->
+
+
+
+		<!--CALL-TO-ACTION-LINK-->
+		
+		<a name="content"></a>
+		
+		<!--CALL-TO-ACTION-LINK-->
+
+
+
+		<!--NAVIGATION-->
+		
+		<nav id="index-nav">
+			
+			<div class>		
+			
+				<div id="logo">
+					<a href="{% url 'feed.views.post_list' %}">MATH BLOG</a>
+				</div>
+				
+					<div class="navigation-links">
+						<ul>
+							<div>
+								<li><a href="{% url 'feed.views.post_list' %}" id="news">Стрічка</a></li>
+								<li><a href="{% url 'lessons.views.lessons' %}">УРОКИ</a></li>
+								<li><a href="{% url 'dpa.views.dpa' %}">ДПА</a></li>
+								<li><a href="{% url 'zno.views.zno' %}">ЗНО</a></li>	
+								<li><a href="{% url 'competition.views.competition' %}">ОЛІМПІАДИ</a></li>
+								<li><a href="{% url 'educational_activities.views.educational_activities' %}">ВИХОВНА РОБОТА</a></li>
+								<li><a href="{% url 'gallery.views.gallery' %}">ФОТОГАЛЕРЕЯ</a></li>
+							</div>
+						</ul>
+					</div>
+			</div>
+
+		</nav>
+		
+		<!--NAVIGATION-->
+
+	</header>
+	
+	<!--HEADER-->
+
+
+
+	<!--MAIN-->
+
+	<main class='main'>
+
+
+	<!--NEWS-->
+	
+	{% for post in posts %}
+	
+		<div class="content-news">
+			<div class="content-head">
+				<div class="news-head"><h1>{{ post.title }}</h1><br> <h3>{{ post.subtitle }}</h3></div>
+				<div class="news-date"><p> {{ post.published_date }}</p></div>
+			</div>
+
+			<div class="news-text">
+				<p><img src="{{ post.icon.url }}"><br>{{ post.text|linebreaks }}</p>
+			</div>
+			
+			<!--<div class="content-interface">
+			<div class="content-btn">
+				<a href="#back" class='btn'>Подробиці</a>
+			</div>
+			</div>-->
+		</div>
+	
+	{% endfor %}
+		
+	<!--NEWS-->
+
+
+	</main>
+	
+	<!--MAIN-->
+
+	
+
+	<!--FOOTER-->
+	
+	<footer>
+		
+		<div>
+			<h4>Про блог</h4><br>
+			<p>	Вітаю Вас на сторінках мого віртуального світу!
+				<br>Сподіваюся, що представлена інформація буде цікава й корисна не тільки вчителям, а й класним керівникам, молодим педагогам, а також юним математикам.
+				<br>Бажаю приємного та корисного проведення часу на сторінках мого блогу!
+				<br>Бажаю всім творчих успіхів!
+			</p><br>
+			<h4>Зворотній зв'язок</h4><br>
+			<p>blog.antoshchuk@gmail.com</p>
+		</div>
+		
+		<div class="about-me">
+			<h4>Про мене</h4><br>
+
+			<p><img src="{% static 'images/my-foto.png' %}"><b>Антощук Людмила Анатоліївна </b></p>
+								<p><b>Місце роботи</b> -НВК «СЗОШ, ліцей «Успіх»</p>
+								<p><b>Посада</b> - Вчитель математики і фізики</p>
+								<p><b>Освіта</b> - Житомирський державний університет ім. Івана Франка, 1993р.</p>
+								<p><b>Кваліфікаційна категорія</b> - Вища</p>
+								<p><b>Звання</b> - Старший вчитель</p>
+								<p><b>Педагогічний стаж</b> - 20 років</p>
+								<p><b>Моє кредо</b> - Не тільки сама істина дає впевненість, але й пошук її.</p>
+								<p><b>Методична проблема</b> - Використання елементів квантового навчання в класах з поглибленим вивченням математики</p>
+		</div>
+
+	</footer>
+	
+	<!--FOOTER-->
+
+
+
+	<script type="text/javascript">
+		(function(){  // анонимная функция (function(){ })(), чтобы переменные "a" и "b" не стали глобальными
+			var a = document.querySelector('#index-nav'), b = null;  // селектор блока, который нужно закрепить
+			window.addEventListener('scroll', Ascroll, false);
+
+			function Ascroll() {
+			  if (b == null) {  // добавить потомка-обёртку, чтобы убрать зависимость с соседями
+			  
+			    var Sa = getComputedStyle(a, ''), s = '';
+
+			    for (var i = 0; i < Sa.length; i++) {  // перечислить стили CSS, которые нужно скопировать с родителя
+
+			      if (Sa[i].indexOf('overflow') == 0 || Sa[i].indexOf('padding') == 0 || Sa[i].indexOf('border') == 0 || Sa[i].indexOf('outline') == 0 || Sa[i].indexOf('box-shadow') == 0 || Sa[i].indexOf('background') == 0) {
+			        s += Sa[i] + ': ' +Sa.getPropertyValue(Sa[i]) + '; '
+			      }
+			    }
+
+			    b = document.createElement('div');  // создать потомка
+			    b.style.cssText = s + ' box-sizing: border-box; width: ' + a.offsetWidth + 'px;';
+			    a.insertBefore(b, a.firstChild);  // поместить потомка в цепляющийся блок первым
+			    var l = a.childNodes.length;
+			    for (var i = 1; i < l; i++) {  // переместить во вновь созданного потомка всех остальных потомков (итого: создан потомок-обёртка, внутри которого по прежнему работают скрипты)
+			      b.appendChild(a.childNodes[1]);
+			    }
+			    a.style.height = b.getBoundingClientRect().height + 'px';  // если под скользящим элементом есть другие блоки, можно своё значение
+			    a.style.padding = '0';
+			    a.style.border = '0';  // если элементу присвоен padding или border
+			  }
+
+			  if (a.getBoundingClientRect().top <= 0) { // elem.getBoundingClientRect() возвращает в px координаты элемента относительно верхнего левого угла области просмотра окна браузера
+			    b.className = 'sticky';
+			  } else {
+			    b.className = '';
+			  }
+			  window.addEventListener('resize', function() {
+			    a.children[0].style.width = getComputedStyle(a, '').width
+			  }, false);  // если изменить размер окна браузера, измениться ширина элемента
+			}
+		})()
+	</script>
+
+
+
+
+	</body>
+</html>

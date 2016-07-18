@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html>
+
+{% load staticfiles %}
+
+<html>
+	<head>
+		<meta charset='UTF=8' >
+		<meta name="keywords" content="дпа, блог, математика, підготовка до дпа, алгебра, геометрія">
+
+		<title>ДПА</title>
+
+		<link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+		<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+		<link rel="icon" type="image/png" href="{% static 'images/faveicon.png' %}">
+	</head>
+	
+	<body>
+
+
+	
+	<!--HEADER-->	
+	
+	<header>
+
+
+		
+		<!--NAVIGATION-->
+
+		<nav>
+			
+			<div id="logo" >
+					<a href="{% url 'feed.views.post_list' %}">MATH BLOG</a>	
+			</div>	
+				<div class="navigation-links">
+					<ul>
+						<div>
+							<li><a href="{% url 'feed.views.post_list' %}">Стрічка</a></li> <!-- косяк -->
+							<li><a href="{% url 'lessons.views.lessons' %}">УРОКИ</a></li>
+							<li><a href="{% url 'dpa.views.dpa' %}" id="dpa">ДПА</a></li>
+							<li><a href="{% url 'zno.views.zno' %}">ЗНО</a></li>	
+							<li><a href="{% url 'competition.views.competition' %}">ОЛІМПІАДИ</a></li>
+							<li><a href="{% url 'educational_activities.views.educational_activities' %}">ВИХОВНА РОБОТА</a></li>
+							<li><a href="{% url 'gallery.views.gallery' %}">ФОТОГАЛЕРЕЯ</a></li>
+						</div>
+					</ul>
+				</div>
+
+		</nav>
+
+		<!--NAVIGATION-->
+
+		
+		<!--INTRO-->
+		
+		<div class="intro", id="intro-dpa"></div>
+		
+		<!--INTRO-->
+
+			
+	</header>
+
+	<!--HEADER-->
+
+
+	
+	<!--MAIN-->	
+
+	<main>
+
+		<div class="content">
+			
+			<div class="content-block-2">
+				<a href="https://drive.google.com/folderview?id=0B5yipLTtgwVZM001TmVFQWJYdkk&usp=sharing" target="_blank">
+					<div class="block-ico" id="file-folder">
+					<img src="{% static 'images/file-folder.png' %}">	
+					</div>
+					<div class="block-head">
+						<div class="block-name">
+						<h3>Збірник ДПА 2014</h3>
+						</div>
+						<div class="block-date">
+						<p>Електронна версія збірника завдань дпа 2014</p>
+						</div>
+					</div>
+				</a>
+			</div>
+
+			<div class="content-block-2">
+				<a href="https://drive.google.com/folderview?id=0B5yipLTtgwVZYlhxZm1aamhjZFk&usp=sharing" target="_blank">
+					<div class="block-ico" id="link">
+					<img src="{% static 'images/link.png' %}">	
+					</div>
+					<div class="block-head">
+						<div class="block-name">
+						<h3>Корисні лінки</h3>
+						</div>
+						<div class="block-date">
+						<p>зручні ресурси для підготовки до дпа</p>
+						</div>
+					</div>
+				</a>
+			</div>
+		
+		</div>
+				
+	</main>
+
+	<!--MAIN-->
+
+
+
+	<!--FOOTER-->
+
+	<footer>
+		<div>
+			<h4>Про блог</h4><br>
+			<p>	Вітаю Вас на сторінках мого віртуального світу!
+				<br>Сподіваюся, що представлена інформація буде цікава й корисна не тільки вчителям, а й класним керівникам, молодим педагогам, а також юним математикам.
+				<br>Бажаю приємного та корисного проведення часу на сторінках мого блогу!
+				<br>Бажаю всім творчих успіхів!
+			</p><br>
+			<h4>Зворотній зв'язок</h4><br>
+			<p>blog.antoshchuk@gmail.com</p>
+		</div>
+		<div class="about-me">
+			<h4>Про мене</h4><br>
+			<p><img src="{% static 'images/my-foto.png' %}"><b>Антощук Людмила Анатоліївна</b> </p>
+								<p><b>Місце роботи</b> -НВК «СЗОШ, ліцей «Успіх»</p>
+								<p><b>Посада</b> - Вчитель математики і фізики</p>
+								<p><b>Освіта</b> - Житомирський державний університет ім. Івана Франка, 1993р.</p>
+								<p><b>Кваліфікаційна категорія</b> - Вища</p>
+								<p><b>Звання</b> - Старший вчитель</p>
+								<p><b>Педагогічний стаж</b> - 20 років</p>
+								<p><b>Моє кредо</b> - Не тільки сама істина дає впевненість, але й пошук її.</p>
+								<p><b>Методична проблема</b> - Використання елементів квантового навчання в класах з поглибленим вивченням математики</p>
+		</div>
+		
+	</footer>
+
+	<!--FOOTER-->
+
+
+
+	</body>
+</html>
